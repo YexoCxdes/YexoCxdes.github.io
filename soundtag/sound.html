@@ -15,11 +15,13 @@
         }
         #playButton {
             cursor: pointer;
+            width: 750px; /* Adjust as needed */
+            height: 750px; /* Adjust as needed */
         }
     </style>
 </head>
 <body>
-    <img id="playButton" src="image.jpg" alt="Play Button" width="200">
+    <img id="playButton" src="image.jpg" alt="Play Button">
 
     <audio id="audio" loop>
         <source src="your-audio-file.mp3" type="audio/mp3">
@@ -29,8 +31,14 @@
     <script>
         document.getElementById("playButton").addEventListener("click", function() {
             let audio = document.getElementById("audio");
-            audio.play();
+
+            // Check if audio is already playing, if not, play it
+            if (audio.paused) {
+                audio.play().catch(error => console.log("Playback error: ", error));
+            } else {
+                audio.pause();
+                audio.currentTime = 0; // Reset to start
+            }
         });
-    </script>
 </body>
 </html>
