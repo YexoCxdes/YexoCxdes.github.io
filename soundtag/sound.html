@@ -34,17 +34,12 @@
         document.getElementById("playButton").addEventListener("click", function() {
             let audio = document.getElementById("audio");
 
-            // Ensure the user interaction starts playback
+            // Only play if it's not already playing
             if (audio.paused) {
-                audio.play().then(() => {
-                    console.log("Audio playing...");
-                }).catch(error => {
+                audio.play().catch(error => {
                     console.error("Playback error:", error);
                     alert("Playback error: Ensure your browser allows autoplay with user interaction.");
                 });
-            } else {
-                audio.pause();
-                audio.currentTime = 0; // Reset to start
             }
         });
     </script>
