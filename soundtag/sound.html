@@ -13,32 +13,24 @@
             background-color: #1A1A1A;
             flex-direction: column;
         }
-        button {
-            padding: 15px 25px;
-            font-size: 90px;
+        #playButton {
             cursor: pointer;
-            background-color: #292929;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #252525;
         }
     </style>
 </head>
 <body>
-    <button onclick="playAudio()">La passion</button>
+    <img id="playButton" src="image.jpg" alt="Play Button" width="200">
+
     <audio id="audio" loop>
-        <source src="audio.mp3" type="audio/mpeg">
+        <source src="your-audio-file.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
     <script>
-        function playAudio() {
-            const audio = document.getElementById('audio');
+        document.getElementById("playButton").addEventListener("click", function() {
+            let audio = document.getElementById("audio");
             audio.play();
-        }
+        });
     </script>
 </body>
 </html>
